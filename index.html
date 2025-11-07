@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>気象庁予報データビューア</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; background-color: #f4f4f9; }
+        #controls { margin-bottom: 20px; padding: 15px; background-color: #e9e9e9; border-radius: 6px; }
+        #output { background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h2 { border-bottom: 2px solid #0056b3; padding-bottom: 5px; color: #0056b3; }
+        h3 { color: #333; margin-top: 15px; }
+        .area-info { margin-bottom: 20px; border: 1px solid #ccc; padding: 10px; border-radius: 4px; }
+        .time-info { margin-left: 15px; border-left: 2px solid #ddd; padding-left: 10px; }
+        /* 共通スタイル */
+        body { 
+            font-family: sans-serif; 
+            margin: 0; /* マージンをリセット */
+            padding: 10px; 
+            background-color: #f4f4f9; 
+            color: #333;
+        }
+        h1 { 
+            font-size: 1.5em; /* スマホ向けに小さめに */
+            padding: 10px 0;
+            margin: 0 0 15px 0;
+            text-align: center;
+            color: #0056b3;
+        }
+
+        /* コントロールエリア */
+        #controls { 
+            margin-bottom: 20px; 
+            padding: 15px; 
+            background-color: #e9e9e9; 
+            border-radius: 6px; 
+            text-align: center;
+        }
+        #areaSelect {
+            padding: 8px;
+            font-size: 1em;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            width: 100%; /* スマホで全幅にする */
+            box-sizing: border-box; /* paddingとborderを幅に含める */
+            margin-top: 5px;
+        }
+        
+        /* 出力エリア */
+        #output { 
+            background-color: #fff; 
+            padding: 15px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+        }
+        h2 { 
+            border-bottom: 2px solid #0056b3; 
+            padding-bottom: 5px; 
+            color: #0056b3; 
+            font-size: 1.2em;
+        }
+        h3 { 
+            color: #333; 
+            margin-top: 15px; 
+            font-size: 1.1em;
+            background-color: #eef;
+            padding: 5px;
+            border-radius: 4px;
+        }
+        
+        /* エリア情報 */
+        .area-info { 
+            margin-bottom: 20px; 
+            border: 1px solid #ccc; 
+            padding: 10px; 
+            border-radius: 4px; 
+        }
+        .time-info { 
+            margin-left: 0; 
+            border-left: none; 
+            padding-left: 0; 
+            margin-top: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px dashed #eee;
+        }
+        .time-info h4 {
+            font-size: 1em;
+            margin: 0 0 5px 0;
+            color: #555;
+        }
+        .time-info ul {
+            padding-left: 20px;
+            margin: 5px 0 0 0;
+        }
+        .time-info li {
+            font-size: 0.9em;
+        }
+
+
+        /* 💻 デスクトップ/タブレット向けスタイル (画面幅 600px以上) */
+        @media (min-width: 600px) {
+            body {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            #controls {
+                display: flex; /* Flexboxでコントロールを横並びに */
+                justify-content: center;
+                align-items: center;
+                padding: 15px 30px;
+            }
+            #controls label {
+                margin-right: 15px;
+            }
+            #areaSelect {
+                width: auto; /* 幅を自動に戻す */
+                min-width: 250px;
+            }
+            .time-info { 
+                margin-left: 15px; 
+                border-left: 2px solid #ddd; 
+                padding-left: 10px; 
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>気象庁短期予報データビューア</h1>
+    
+    <div id="controls">
+        <label for="areaSelect">予報地域を選択:</label>
+        <select id="areaSelect" onchange="displayWeatherData()">
+            </select>
+    </div>
+
+    <div id="output">
+        地域を選択してください...
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
