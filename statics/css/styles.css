@@ -1,0 +1,135 @@
+/* 共通スタイル (レスポンシブ対応) */
+body { 
+    font-family: sans-serif; 
+    margin: 0; 
+    padding: 10px; 
+    background-color: #f4f4f9; 
+    color: #333;
+}
+h1 { 
+    font-size: 1.5em; 
+    padding: 10px 0;
+    margin: 0 0 15px 0;
+    text-align: center;
+    color: #0056b3;
+}
+
+/* コントロールエリア */
+#controls { 
+    margin-bottom: 20px; 
+    padding: 15px; 
+    background-color: #e9e9e9; 
+    border-radius: 6px; 
+    text-align: center;
+}
+/* 予報期間コントロールと地域選択を明確に縦に分ける */
+#forecastTypeControls {
+    margin-bottom: 15px; /* ラジオボタンの下にマージンを追加 */
+}
+#area-select { 
+    padding: 8px;
+    font-size: 1em;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 100%; 
+    box-sizing: border-box;
+}
+
+/* 出力エリア */
+#output { 
+    background-color: #fff; 
+    padding: 15px; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+}
+.loading, .error {
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+}
+.loading {
+    color: #0056b3;
+}
+.error {
+    color: red;
+}
+
+h2 { 
+    border-bottom: 2px solid #0056b3; 
+    padding-bottom: 5px; 
+    color: #0056b3; 
+    font-size: 1.2em;
+}
+h3 { 
+    color: #333; 
+    margin-top: 15px; 
+    font-size: 1.1em;
+    background-color: #eef;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+/* エリア情報 */
+.area-info { 
+    margin-bottom: 20px; 
+    border: 1px solid #ccc; 
+    padding: 10px; 
+    border-radius: 4px; 
+}
+.time-info { 
+    margin-top: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #eee;
+}
+.time-info:last-child {
+    border-bottom: none;
+}
+.time-info h4 {
+    font-size: 1em;
+    margin: 0 0 5px 0;
+    color: #555;
+}
+.time-info ul {
+    padding-left: 20px;
+    margin: 5px 0 0 0;
+}
+.time-info li {
+    font-size: 0.9em;
+}
+
+
+/* 💻 デスクトップ/タブレット向けスタイル (画面幅 600px以上) */
+@media (min-width: 600px) {
+    /* 最大幅の適用と中央揃え */
+    body {
+        padding: 20px;
+        max-width: 800px; /* 最大幅を800pxに設定 */
+        margin-left: auto;
+        margin-right: auto; /* 中央揃え */
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+    
+    /* #controls の display: flex を削除または無効化し、縦並びを維持 */
+    #controls {
+        /* display: flex; や justify-content の設定を削除 */
+        text-align: center; /* 中央揃えは維持 */
+        padding: 15px 30px;
+    }
+    
+    /* 縦並びなので、幅が広くなっても全幅に広がるのを防ぐために、コントロールに最大幅を設定 */
+    #area-select {
+        width: 100%; 
+        max-width: 350px; /* 選択ボックスの最大幅を調整 */
+        margin: 0 auto; /* 中央揃え */
+    }
+    #forecastTypeControls {
+        margin-bottom: 15px;
+    }
+    #controls label[for="area-select"] {
+        display: block; /* ラベルをブロック要素にして一行占有させる */
+        margin-bottom: 5px;
+    }
+}
